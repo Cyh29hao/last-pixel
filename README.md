@@ -10,25 +10,34 @@ This public repository is currently a showcase only. Source code and internal de
 
 ## Current Status
 
-The project has completed its local D2.5 milestone:
+The project has completed local gates through D5.1:
 
 - Research gate complete
 - D1 movement graybox complete
 - D2 combat baseline complete
 - D2.5 projected 2.5D presentation complete
-- D3A inventory foundation planned next
+- D3A generic item / inventory foundation complete
+- D3B playable loot spine complete
+- D3C first item-backed combat slice complete
+- D3D scaled world, inventory UI, death boxes, and match shell complete
+- D5 world skeleton with map invariants, legal spawn/loot, static vehicles, and alive count complete
+- D5.1 map legality, town detail, backpack/equipment, armor pickup, grenade loot, and ammo stack patch complete
 
 ## Current Features
 
 - Browser-playable local prototype
 - Screen-relative movement
 - Mouse aiming
-- Three original placeholder firearm tuning anchors
+- Original placeholder firearm tuning anchors
 - Deterministic seeded core simulation
 - Projectile collision and damage simulation
 - Auto reload and reload progress UI
+- Item-backed loot, ammo, healing, and inventory state
+- Doors, interior visibility, death boxes, and static dummy participants
+- Legal randomized player/participant spawns and randomized loot
+- Static concept vehicles with four seats and health display
 - Client-side projected 2.5D graybox presentation
-- Original graybox map and building prototype
+- Original graybox town map with collision-backed blockers, trees, rivers, bridges, and interiors
 - One-click local playtest workflow in the private development tree
 
 ## Technical Highlights
@@ -48,12 +57,13 @@ There is no GitHub Pages deployment, no downloadable release, and no online serv
 
 ## Roadmap
 
-- D3A generic item and inventory foundation
-- D3B loot, ammo, healing, and drop loop
-- D3C combat variety prototype
-- D4 bot baseline
-- D5 zone and complete match loop
-- D6 demo hardening
+- D5.5 minimal materials systems slice
+- Bot / AI after D5.5
+- Complete single-player Battle Royale loop
+- Demo hardening and visual readability pass
+- Server-readiness audit
+- Local authoritative multiplayer vertical slice
+- Multiplayer feature parity and 6-human Internet test
 
 ## Status
 
