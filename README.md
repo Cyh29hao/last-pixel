@@ -10,7 +10,7 @@ This public repository is currently a showcase only. Source code and internal de
 
 ## Current Status
 
-The project has completed local gates through D5.1:
+The project has completed local gates through D5.6:
 
 - Research gate complete
 - D1 movement graybox complete
@@ -22,6 +22,8 @@ The project has completed local gates through D5.1:
 - D3D scaled world, inventory UI, death boxes, and match shell complete
 - D5 world skeleton with map invariants, legal spawn/loot, static vehicles, and alive count complete
 - D5.1 map legality, town detail, backpack/equipment, armor pickup, grenade loot, and ammo stack patch complete
+- D5.5 materials skeleton, drivable placeholder vehicles, minimap, and richer menu/settlement shell complete
+- D5.6 house rendering, map reachability, inventory usability, backpack capacity, and map marker polish complete
 
 ## Current Features
 
@@ -36,6 +38,10 @@ The project has completed local gates through D5.1:
 - Doors, interior visibility, death boxes, and static dummy participants
 - Legal randomized player/participant spawns and randomized loot
 - Static concept vehicles with four seats and health display
+- Placeholder vehicles can be entered and driven by the driver seat in the local prototype
+- Hide/reveal house cutaway behavior with interior props and cover
+- Backpack item progression, right-click inventory handling, and equipment overflow behavior
+- Large map overlay with a single player marker plus minimap readability improvements
 - Client-side projected 2.5D graybox presentation
 - Original graybox town map with collision-backed blockers, trees, rivers, bridges, and interiors
 - One-click local playtest workflow in the private development tree
@@ -57,8 +63,8 @@ There is no GitHub Pages deployment, no downloadable release, and no online serv
 
 ## Roadmap
 
-- D5.5 minimal materials systems slice
-- Bot / AI after D5.5
+- Owner D5.6 playtest and bug triage
+- Bot / AI only after D5.6 is accepted
 - Complete single-player Battle Royale loop
 - Demo hardening and visual readability pass
 - Server-readiness audit
