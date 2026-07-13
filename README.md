@@ -10,7 +10,8 @@ This public repository is currently a showcase only. Source code and internal de
 
 ## Current Status
 
-The project has completed local gates through D5.6:
+The project has completed local gates through D5.7H, with a first Bot-Lite combat pressure
+slice implemented locally:
 
 - Research gate complete
 - D1 movement graybox complete
@@ -24,6 +25,9 @@ The project has completed local gates through D5.6:
 - D5.1 map legality, town detail, backpack/equipment, armor pickup, grenade loot, and ammo stack patch complete
 - D5.5 materials skeleton, drivable placeholder vehicles, minimap, and richer menu/settlement shell complete
 - D5.6 house rendering, map reachability, inventory usability, backpack capacity, and map marker polish complete
+- D5.7 map polish, spawn fairness, lake island military base, and denser town destinations complete
+- D5.7H map playability, room cutaway, outdoor loot legality, and backpack quick-slot hardening complete
+- First Bot-Lite combat pressure slice complete locally; deeper Bot AI remains paused pending map playtest acceptance
 
 ## Current Features
 
@@ -35,7 +39,7 @@ The project has completed local gates through D5.6:
 - Projectile collision and damage simulation
 - Auto reload and reload progress UI
 - Item-backed loot, ammo, healing, and inventory state
-- Doors, interior visibility, death boxes, and static dummy participants
+- Doors, interior visibility, death boxes, and active local Bot-Lite participants
 - Legal randomized player/participant spawns and randomized loot
 - Static concept vehicles with four seats and health display
 - Placeholder vehicles can be entered and driven by the driver seat in the local prototype
@@ -44,6 +48,7 @@ The project has completed local gates through D5.6:
 - Large map overlay with a single player marker plus minimap readability improvements
 - Client-side projected 2.5D graybox presentation
 - Original graybox town map with collision-backed blockers, trees, rivers, bridges, and interiors
+- Lake island military base, broad traversal platforms, and stronger map legality checks
 - One-click local playtest workflow in the private development tree
 
 ## Technical Highlights
@@ -63,8 +68,8 @@ There is no GitHub Pages deployment, no downloadable release, and no online serv
 
 ## Roadmap
 
-- Owner D5.6 playtest and bug triage
-- Bot / AI only after D5.6 is accepted
+- Owner D5.7H map/inventory playtest and bug triage
+- Resume richer Bot / AI only after D5.7H map playability is accepted
 - Complete single-player Battle Royale loop
 - Demo hardening and visual readability pass
 - Server-readiness audit
