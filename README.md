@@ -15,6 +15,9 @@ readable matches, deterministic rules, and a dense small-town battlefield.
 Desktop keyboard and mouse are required. The site is a static single-player build: no login,
 analytics, multiplayer server, cloud save, or account system is used.
 
+The project adds no cookies or telemetry. GitHub Pages may process connection data under
+GitHub's own policy; see the [playtest privacy note](https://cyh29hao.github.io/last-pixel/PRIVACY.txt).
+
 ## The Game Today
 
 Drop into an original `18,000 x 16,800` town, search interiors for equipment, fight through
