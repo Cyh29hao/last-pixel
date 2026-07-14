@@ -6,7 +6,14 @@ readable matches, deterministic rules, and a dense small-town battlefield.
 > **Current milestone:** [D5.95 — Map & Vehicle Comfort Playtest](https://github.com/Cyh29hao/last-pixel/releases/tag/d5.95-playtest)
 >
 > Local single-player graybox with 12 Bot-Lite opponents. Multiplayer, production art,
-> public binaries, and online hosting are not part of this release.
+> and final balance are not part of this release.
+
+## Play Online
+
+**[Launch the D5.95 browser playtest](https://cyh29hao.github.io/last-pixel/)**
+
+Desktop keyboard and mouse are required. The site is a static single-player build: no login,
+analytics, multiplayer server, cloud save, or account system is used.
 
 ## The Game Today
 
@@ -73,9 +80,10 @@ driving, and full pathfinding remain future work.
 
 ## Availability
 
-D5.95 is a **release-notes-only GitHub prerelease**. This public repository remains a
-fail-closed showcase containing only this README. It does not publish the private source
-tree, a downloadable game build, GitHub Pages, or an online server.
+D5.95 is published as a static GitHub Pages playtest from the isolated `gh-pages` branch.
+The public `main` branch remains a fail-closed showcase containing only this README. The
+deployment contains the compiled browser bundle and required third-party notices, but no
+private TypeScript source, source maps, downloadable package, or online game server.
 
 ## Next
 
