@@ -10,8 +10,7 @@ This public repository is currently a showcase only. Source code and internal de
 
 ## Current Status
 
-The project has completed local gates through D5.7H, with a first Bot-Lite combat pressure
-slice implemented locally:
+The project has reached the local D5.95 map-density and vehicle-comfort milestone:
 
 - Research gate complete
 - D1 movement graybox complete
@@ -27,7 +26,13 @@ slice implemented locally:
 - D5.6 house rendering, map reachability, inventory usability, backpack capacity, and map marker polish complete
 - D5.7 map polish, spawn fairness, lake island military base, and denser town destinations complete
 - D5.7H map playability, room cutaway, outdoor loot legality, and backpack quick-slot hardening complete
-- First Bot-Lite combat pressure slice complete locally; deeper Bot AI remains paused pending map playtest acceptance
+- D5.8/D5.8A expanded-map and cutaway iterations completed and owner-audited
+- D5.9 original Map V2 implemented at the locked final graybox size with connected water, purposeful crossings, road hierarchy, residential variety, and civic/transit destinations
+- D5.9 local survival loop implemented with 12 Bot-Lite opponents, shrinking safe zones, delayed air drops, throwable grenades, destructible soft barriers, and richer vehicles
+- D5.9 product-shell pass completed for menu, loading, inventory, tactical map, and settlement
+- D5.95 map-comfort pass completed with 173 buildings, 105 searchable interiors, real connected rows/internal doors, denser centered housing, 360 varied grass patches, 96 cover pieces, and 12 vehicle nodes
+- D5.95 vehicle-comfort pass completed with smaller/tougher/faster vehicles, directional mass-scaled run-over damage, vehicle collisions, high-speed exits, lethal wreck explosions, and wider drive-through entrances
+- D5.95 consistency/readability pass completed for indoor loot layers, Bot weapon/death-box identity, and clipped tactical-map circles
 
 ## Current Features
 
@@ -41,14 +46,18 @@ slice implemented locally:
 - Item-backed loot, ammo, healing, and inventory state
 - Doors, interior visibility, death boxes, and active local Bot-Lite participants
 - Legal randomized player/participant spawns and randomized loot
-- Static concept vehicles with four seats and health display
-- Placeholder vehicles can be entered and driven by the driver seat in the local prototype
+- Balanced car/pickup/van roles with four seats, acceleration, steering, braking, collision, projectile damage, run-over damage, high-speed exits, and lethal destruction
+- Projectile- and vehicle-destructible soft guardrails/fences
+- Backpack-backed throwable grenades with flight, bounce, fuse, line-of-sight, and radial damage
+- Five-phase shrinking safe zone with current/next tactical-map rings and damage pressure
+- Delayed deterministic air drops sampled inside the planned safe zone
+- 12 active local Bot-Lite opponents with combat, stuck replanning, and safe-zone rotation
 - Hide/reveal house cutaway behavior with interior props and cover
 - Backpack item progression, right-click inventory handling, and equipment overflow behavior
 - Large map overlay with a single player marker plus minimap readability improvements
 - Client-side projected 2.5D graybox presentation
-- Original graybox town map with collision-backed blockers, trees, rivers, bridges, and interiors
-- Lake island military base, broad traversal platforms, and stronger map legality checks
+- Original graybox town with 173 visible buildings, 105 searchable interiors, 15 semantic zones, connected waterways, six purposeful crossings, east rail boundary, alleys, service roads, connected rows, and indoor-first loot
+- Stronger map topology, accessibility, density, loot, spawn, and player-radius reachability checks
 - One-click local playtest workflow in the private development tree
 
 ## Technical Highlights
@@ -68,9 +77,9 @@ There is no GitHub Pages deployment, no downloadable release, and no online serv
 
 ## Roadmap
 
-- Owner D5.7H map/inventory playtest and bug triage
-- Resume richer Bot / AI only after D5.7H map playability is accepted
-- Complete single-player Battle Royale loop
+- Owner D5.95 map/vehicle feel playtest and bounded bug triage
+- Performance caching, long-running match soak, and richer Bot behavior
+- Harden the complete single-player Battle Royale loop
 - Demo hardening and visual readability pass
 - Server-readiness audit
 - Local authoritative multiplayer vertical slice
