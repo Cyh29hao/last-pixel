@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Project Last Pixel deterministic browser survival shooter graybox."
+    />
+    <link rel="icon" href="data:," />
+    <title>Project Last Pixel - Combat Graybox</title>
+    <script type="module" crossorigin src="/last-pixel/assets/index-DY5zvJZP.js"></script>
+    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index--YWMKvQL.css">
+  </head>
+  <body>
+    <main id="app-shell">
+      <div id="game-container" aria-label="Game canvas"></div>
+      <section id="main-menu" class="shell-overlay menu-overlay" aria-label="Main menu">
+        <div class="menu-panel menu-panel--landing">
+          <header class="brand-lockup">
+            <span class="brand-mark" aria-hidden="true"><span></span></span>
+            <div>
+              <p class="eyebrow">Single-player survival field test</p>
+              <h1>Project Last Pixel</h1>
+              <p class="build-label">D5.95 map-and-vehicle comfort graybox</p>
+            </div>
+          </header>
+          <div class="menu-intro">
+            <p class="menu-lead">Loot fast. Read the town. Outlast every hostile.</p>
+            <p class="menu-summary">
+              An original browser survival-shooter prototype built for decisive movement,
+              scavenging, and compact firefights.
+            </p>
+            <p id="startup-error" class="startup-error hidden" role="alert"></p>
+          </div>
+          <div class="readiness-strip" aria-label="Build capabilities">
+            <span><strong>13</strong> Survivors</span>
+            <span><strong>Solo</strong> Local match</span>
+            <span><strong>Seeded</strong> Simulation</span>
+          </div>
+          <div class="menu-actions">
+            <button id="start-match" class="button-primary" type="button">Start Game</button>
+            <a
+              class="menu-link button-secondary"
+              href="https://github.com/cyh29hao/last-pixel"
+              target="_blank"
+              rel="noreferrer"
+              >Public GitHub</a
+            >
+          </div>
+          <p class="menu-keyline">
+            <kbd>WASD</kbd> Move <kbd>Mouse</kbd> Aim <kbd>F</kbd> Interact
+          </p>
+          <div class="menu-details-grid">
+            <details class="menu-details">
+              <summary>Field Manual</summary>
+              <ul>
+                <li>WASD move, mouse aim, left mouse fire.</li>
+                <li>F opens doors, picks loot, enters vehicles, or opens boxes.</li>
+                <li>1-6 select equipment; slot 5 throws grenades and slot 6 uses medicine.</li>
+                <li>Tab opens inventory. Right-click acts quickly; drag valid bag items.</li>
+                <li>M opens the tactical map with both current and next safe-zone rings.</li>
+                <li>Vehicles use W/S throttle and A/D steering; F exits.</li>
+              </ul>
+            </details>
+            <details class="menu-details">
+              <summary>About This Build</summary>
+              <p>
+                A rough original 2.5D survival-shooter prototype focused on map legality, loot,
+                equipment, competing bots, vehicles, safe zones, and reliable match flow before
+                multiplayer.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section
+        id="loading-overlay"
+        class="shell-overlay hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Match loading"
+      >
+        <div class="menu-panel menu-panel--loading">
+          <p class="eyebrow">Preparing local simulation</p>
+          <span class="loading-mark" aria-hidden="true"><span></span></span>
+          <div>
+            <h2 id="loading-title">Initializing Match</h2>
+            <p class="panel-support">Building a legal seeded world and deploying participants.</p>
+          </div>
+          <ol id="loading-steps" class="loading-steps" aria-live="polite"></ol>
+          <div class="loading-track" aria-hidden="true"><span></span></div>
+        </div>
+      </section>
+      <section
+        id="inventory-overlay"
+        class="inventory-overlay hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Inventory"
+      >
+        <header class="inventory-frame-header">
+          <div>
+            <p class="eyebrow">Loadout management</p>
+            <h2 id="inventory-title">Field Inventory</h2>
+          </div>
+          <p class="inventory-help">
+            <span><kbd>Right-click</kbd> quick action</span>
+            <span><kbd>Drag</kbd> move valid items</span>
+            <span><kbd>Tab</kbd> close</span>
+          </p>
+        </header>
+        <div class="inventory-column inventory-column--nearby">
+          <div class="column-heading">
+            <h3 id="left-inventory-title">Nearby</h3>
+            <span>Within reach</span>
+          </div>
+          <div id="nearby-items" class="inventory-grid compact"></div>
+        </div>
+        <div class="inventory-column main-bag">
+          <div class="column-heading">
+            <h3>Backpack</h3>
+            <span>Carry reserve</span>
+          </div>
+          <div id="inventory-message" class="inventory-message" role="status"></div>
+          <div id="backpack-grid" class="inventory-grid"></div>
+          <div id="drop-zone" class="drop-zone">Drop Here</div>
+        </div>
+        <div class="inventory-column inventory-column--equipment">
+          <div class="column-heading">
+            <h3>Equipment</h3>
+            <span>Active loadout</span>
+          </div>
+          <div id="armor-status" class="armor-panel">Helmet: none<br />Vest: none</div>
+          <div id="equipment-grid" class="equipment-grid"></div>
+        </div>
+      </section>
+      <section
+        id="exit-confirm"
+        class="shell-overlay hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Exit confirmation"
+      >
+        <div class="menu-panel menu-panel--dialog">
+          <span class="dialog-mark dialog-mark--warning" aria-hidden="true"></span>
+          <p class="eyebrow">Match in progress</p>
+          <h2 id="exit-title">Exit Match?</h2>
+          <p>Your current run will end and you will return to the main menu.</p>
+          <div class="button-row">
+            <button id="confirm-exit" class="button-danger" type="button">Exit</button>
+            <button id="cancel-exit" class="button-secondary" type="button">Cancel</button>
+          </div>
+        </div>
+      </section>
+      <section
+        id="settlement-overlay"
+        class="shell-overlay hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Match result"
+      >
+        <div class="menu-panel menu-panel--result">
+          <span class="result-mark" aria-hidden="true"><span></span></span>
+          <p class="eyebrow">Match complete</p>
+          <h2 id="settlement-title">Result</h2>
+          <p id="settlement-stats" class="settlement-stats"></p>
+          <p id="settlement-note" class="settlement-note"></p>
+          <div class="button-row">
+            <button id="settlement-restart" class="button-primary" type="button">Play Again</button>
+            <button id="settlement-menu" class="button-secondary" type="button">Main Menu</button>
+          </div>
+        </div>
+      </section>
+      <button id="exit-match" class="exit-button hidden" type="button">Exit</button>
+      <aside id="debug-panel" aria-label="Weapon debug panel">
+        <strong>WEAPON LAB</strong>
+        <label>
+          Weapon
+          <select id="debug-weapon">
+            <option value="0">Balanced SMG</option>
+            <option value="1">Balanced AR</option>
+            <option value="2">Basic Sidearm</option>
+            <option value="3">S686</option>
+          </select>
+        </label>
+        <label>
+          Damage
+          <input id="debug-damage" type="number" min="0.1" step="1" />
+        </label>
+        <label>
+          Fire interval (ms)
+          <input id="debug-fire-interval" type="number" min="1" step="10" />
+        </label>
+        <label>
+          Projectile speed
+          <input id="debug-projectile-speed" type="number" min="1" step="10" />
+        </label>
+        <label>
+          Spread (deg)
+          <input id="debug-spread" type="number" min="0" step="0.5" />
+        </label>
+      </aside>
+      <p id="boot-status" role="status">Starting Phaser...</p>
+    </main>
+  </body>
+</html>
