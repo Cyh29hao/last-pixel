@@ -1,11 +1,11 @@
-Last Pixel D5.95 - Map & Vehicle Comfort Playtest
+Last Pixel D6 - Demo Hardening Candidate
 
 Public play URL: https://cyh29hao.github.io/last-pixel/
 Public project page: https://github.com/Cyh29hao/last-pixel
 
 This is an original single-player graybox playtest. It is not an official remake, port, or
-licensed continuation of any existing game. Multiplayer, production art/audio/UI, and final
-balance are not included in this milestone.
+licensed continuation of any existing game. Multiplayer, production art/audio/UI,
+attachments, and final balance are not included in this candidate.
 
 Original project code and content remain all rights reserved unless otherwise stated.
 Third-party components remain under their respective licenses; see THIRD_PARTY_NOTICES.txt.

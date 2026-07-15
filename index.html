@@ -9,8 +9,8 @@
     />
     <link rel="icon" href="data:," />
     <title>Project Last Pixel - Combat Graybox</title>
-    <script type="module" crossorigin src="/last-pixel/assets/index-DY5zvJZP.js"></script>
-    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index--YWMKvQL.css">
+    <script type="module" crossorigin src="/last-pixel/assets/index-D8DfLa4P.js"></script>
+    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-DwpC5ehx.css">
   </head>
   <body>
     <main id="app-shell">
@@ -22,7 +22,7 @@
             <div>
               <p class="eyebrow">Single-player survival field test</p>
               <h1>Project Last Pixel</h1>
-              <p class="build-label">D5.95 map-and-vehicle comfort graybox</p>
+              <p class="build-label">D6 local demo-hardening build</p>
             </div>
           </header>
           <div class="menu-intro">
@@ -174,32 +174,180 @@
       </section>
       <button id="exit-match" class="exit-button hidden" type="button">Exit</button>
       <aside id="debug-panel" aria-label="Weapon debug panel">
-        <strong>WEAPON LAB</strong>
-        <label>
-          Weapon
-          <select id="debug-weapon">
-            <option value="0">Balanced SMG</option>
-            <option value="1">Balanced AR</option>
-            <option value="2">Basic Sidearm</option>
-            <option value="3">S686</option>
-          </select>
-        </label>
-        <label>
-          Damage
-          <input id="debug-damage" type="number" min="0.1" step="1" />
-        </label>
-        <label>
-          Fire interval (ms)
-          <input id="debug-fire-interval" type="number" min="1" step="10" />
-        </label>
-        <label>
-          Projectile speed
-          <input id="debug-projectile-speed" type="number" min="1" step="10" />
-        </label>
-        <label>
-          Spread (deg)
-          <input id="debug-spread" type="number" min="0" step="0.5" />
-        </label>
+        <header class="debug-panel-header">
+          <div>
+            <strong>RUNTIME LAB</strong>
+            <span>D6 local diagnostics</span>
+          </div>
+          <span class="debug-live-badge">LIVE</span>
+        </header>
+        <section class="debug-section" aria-labelledby="debug-metrics-title">
+          <h2 id="debug-metrics-title">Metrics</h2>
+          <dl class="debug-metrics" aria-label="Current runtime diagnostics">
+            <div>
+              <dt>Avg FPS</dt>
+              <dd id="debug-metric-fps">—</dd>
+            </div>
+            <div>
+              <dt>Frame p95</dt>
+              <dd id="debug-metric-p95">— ms</dd>
+            </div>
+            <div>
+              <dt>Tick</dt>
+              <dd id="debug-metric-tick">—</dd>
+            </div>
+            <div>
+              <dt>Seed</dt>
+              <dd id="debug-metric-seed">—</dd>
+            </div>
+            <div>
+              <dt>Alive</dt>
+              <dd id="debug-metric-alive">—</dd>
+            </div>
+            <div>
+              <dt>Entities</dt>
+              <dd id="debug-metric-entities">—</dd>
+            </div>
+            <div>
+              <dt>Projectiles</dt>
+              <dd id="debug-metric-projectiles">—</dd>
+            </div>
+            <div>
+              <dt>Player</dt>
+              <dd id="debug-metric-player">—</dd>
+            </div>
+            <div>
+              <dt>Weapon</dt>
+              <dd id="debug-metric-weapon">—</dd>
+            </div>
+            <div class="debug-metric-wide">
+              <dt>Bot states</dt>
+              <dd id="debug-metric-bots">No active bots</dd>
+            </div>
+            <div class="debug-metric-wide">
+              <dt>Zone</dt>
+              <dd id="debug-metric-zone">—</dd>
+            </div>
+            <div>
+              <dt>Match time</dt>
+              <dd id="debug-metric-time">00:00</dd>
+            </div>
+          </dl>
+        </section>
+        <fieldset class="debug-section debug-tuning">
+          <legend>Tuning</legend>
+          <div class="debug-control debug-control-wide">
+            <label for="debug-weapon">Current weapon</label>
+            <select id="debug-weapon">
+              <option value="0">Balanced SMG</option>
+              <option value="1">Balanced AR</option>
+              <option value="2">Basic Sidearm</option>
+              <option value="3">S686</option>
+            </select>
+          </div>
+          <div class="debug-control">
+            <label for="debug-player-speed">Player speed</label>
+            <input id="debug-player-speed" type="number" min="1" step="10" inputmode="decimal" />
+          </div>
+          <div class="debug-control">
+            <label for="debug-damage">Damage</label>
+            <input id="debug-damage" type="number" min="0.1" step="1" inputmode="decimal" />
+          </div>
+          <div class="debug-control">
+            <label for="debug-fire-interval">Fire interval <span>ms</span></label>
+            <input id="debug-fire-interval" type="number" min="1" step="10" inputmode="decimal" />
+          </div>
+          <div class="debug-control">
+            <label for="debug-projectile-speed">Projectile speed</label>
+            <input
+              id="debug-projectile-speed"
+              type="number"
+              min="1"
+              step="10"
+              inputmode="decimal"
+            />
+          </div>
+          <div class="debug-control">
+            <label for="debug-spread">Spread <span>deg</span></label>
+            <input
+              id="debug-spread"
+              type="number"
+              min="0"
+              max="90"
+              step="0.5"
+              inputmode="decimal"
+            />
+          </div>
+          <div class="debug-control">
+            <label for="debug-reload">Reload <span>ms</span></label>
+            <input id="debug-reload" type="number" min="1" step="50" inputmode="decimal" />
+          </div>
+          <div class="debug-control">
+            <label for="debug-loot-density">Loot density <span>×</span></label>
+            <input
+              id="debug-loot-density"
+              type="number"
+              min="0.1"
+              max="3"
+              step="0.05"
+              inputmode="decimal"
+            />
+          </div>
+          <div class="debug-control">
+            <label for="debug-bot-reaction">Bot reaction <span>ms</span></label>
+            <input
+              id="debug-bot-reaction"
+              type="number"
+              min="25"
+              max="2000"
+              step="25"
+              inputmode="decimal"
+            />
+          </div>
+          <div class="debug-control">
+            <label for="debug-bot-aim-error">Bot aim error <span>deg</span></label>
+            <input
+              id="debug-bot-aim-error"
+              type="number"
+              min="0"
+              max="45"
+              step="0.5"
+              inputmode="decimal"
+            />
+          </div>
+          <div class="debug-control">
+            <label for="debug-zone-timing">Zone timing <span>×</span></label>
+            <input
+              id="debug-zone-timing"
+              type="number"
+              min="0.1"
+              max="4"
+              step="0.05"
+              inputmode="decimal"
+            />
+          </div>
+          <div class="debug-control">
+            <label for="debug-zone-damage">Zone damage <span>×</span></label>
+            <input
+              id="debug-zone-damage"
+              type="number"
+              min="0"
+              max="5"
+              step="0.05"
+              inputmode="decimal"
+            />
+          </div>
+        </fieldset>
+        <div class="debug-actions">
+          <button id="debug-reset" type="button">Reset</button>
+          <button id="debug-export" type="button">Export JSON</button>
+        </div>
+        <p
+          id="debug-action-status"
+          class="debug-action-status"
+          role="status"
+          aria-live="polite"
+        ></p>
       </aside>
       <p id="boot-status" role="status">Starting Phaser...</p>
     </main>
