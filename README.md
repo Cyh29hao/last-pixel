@@ -3,100 +3,92 @@
 An original browser-first 2.5D top-down survival shooter prototype built around short,
 readable matches, deterministic rules, and a dense small-town battlefield.
 
-> **Current milestone:** [D5.95 — Map & Vehicle Comfort Playtest](https://github.com/Cyh29hao/last-pixel/releases/tag/d5.95-playtest)
+> **Current online build:** D6 Demo Hardening Candidate
 >
 > Local single-player graybox with 12 Bot-Lite opponents. Multiplayer, production art,
-> and final balance are not part of this release.
+> final UI/audio, attachments, and final balance are not included.
 
 ## Play Online
 
-**[Launch the D5.95 browser playtest](https://cyh29hao.github.io/last-pixel/)**
+**[Launch the D6 browser playtest](https://cyh29hao.github.io/last-pixel/)**
 
-Desktop keyboard and mouse are required. The site is a static single-player build: no login,
+Desktop keyboard and mouse are required. This is a static single-player build: no login,
 analytics, multiplayer server, cloud save, or account system is used.
 
 The project adds no cookies or telemetry. GitHub Pages may process connection data under
 GitHub's own policy; see the [playtest privacy note](https://cyh29hao.github.io/last-pixel/PRIVACY.txt).
 
-## The Game Today
+## Current Game
 
-Drop into an original `18,000 x 16,800` town, search interiors for equipment, fight through
-a five-phase shrinking safe zone, use vehicles and grenades to break stalemates, contest
-delayed air drops, and survive until one participant remains.
+Drop into an original `18,000 x 16,800` water-town, search interiors for equipment, fight
+through a five-phase shrinking safe zone, use vehicles and grenades to break stalemates,
+contest delayed air drops, and survive until one participant remains.
 
-The current playable loop includes:
+The current loop includes:
 
 - 13-participant local matches: one player and 12 active Bot-Lite opponents
-- Item-backed weapons, ammunition, healing, armor, backpacks, death boxes, and indoor loot
-- Projectile combat, auto reload, throwable grenades, soft barriers, and grass concealment
-- Five-phase safe-zone pressure, delayed deterministic air drops, and victory/defeat flow
-- Drivable cars, pickups, and vans with seats, damage, collisions, run-over consequences,
-  high-speed exits, and lethal wreck explosions
+- 173 visible buildings, 105 searchable interiors, connected commercial rows, alleys,
+  bridges, rail boundary, hospital, hotel, restaurant, school sports fields, and civic POIs
+- Item-backed weapons, matching ammunition, healing, armor, backpacks, death boxes, and
+  indoor-weighted loot
+- Projectile combat, grenades, destructible soft barriers, grass concealment, global kill
+  feed, five-second death observation, and persistent empty containers
+- Five-phase safe-zone pressure and hard-collision air drops constrained to the white circle
+- Drivable cars, pickups, and vans with seats, swept movement, damage, collisions,
+  run-over consequences, high-speed exits, and lethal wreck explosions
+- Bot road/bridge routing, white-circle priority, finite weapons/ammo, consistent drops, and
+  one cautious first-aid use that cancels for enemies or urgent zone movement
 - Seeded simulation and map placement for reproducible tests and varied normal starts
 
-## D5.95 World Pass
+## D5.96 Map and Balance Pass
 
-D5.95 focuses on making the locked-size map feel intentional instead of merely large:
+- Connected and shortened water routes with purposeful crossings
+- Three large searchable POIs plus football and basketball facilities
+- Building-edge and roadside vegetation instead of large empty grass fields
+- Streetlights, benches, road signs, connected-room buildings, and denser central housing
+- Expanded weapon roster and loot rebalance, stronger S686/RPG roles, and gun/ammo pairing
+- More responsive vehicles with 20% extra health and safer high-speed exit damage
 
-- 173 visible buildings across 15 semantic zones
-- 105 searchable interiors and 68 intentionally closed structures
-- Connected commercial and residential rows with shared-wall passages and internal doors
-- Center-weighted housing, alleys, service roads, connected waterways, six purposeful
-  crossings, a rail boundary, civic/transit destinations, and indoor-first loot placement
-- 360 varied seeded grass/brush patches, 96 urban cover pieces, and 12 vehicle nodes
-- Brighter interior cutaways that keep loot and actors readable
-- Wider entrance hierarchy so cars can enter common buildings and larger vehicles can use
-  selected flagship entrances
+## D6 Hardening
 
-## D5.95 Vehicle Pass
+- Development-only diagnostics and runtime tuning are isolated behind explicit debug/test
+  query capabilities and are absent from the ordinary public URL
+- Static map rendering, camera culling, broad-phase projectile/collision queries, throttled
+  debug publication, and change-driven redraw paths
+- Atomic clean-match snapshots plus exact ammunition, item, consumable, and elimination
+  accounting across repeated matches
+- Deterministic soak coverage for 100 same-page match lifecycles, active 12-Bot full-zone
+  simulations, and 15-Bot/200-projectile stress
 
-Vehicle roles are smaller, tougher, faster, and more responsive while retaining distinct
-car, pickup, and van handling. The rules now account for:
+## Verification Snapshot
 
-- Run-over damage based on collision-normal relative speed and vehicle mass
-- Vehicle-to-vehicle impulse, velocity response, and mutual damage
-- High-speed exit damage and safe-exit validation
-- Occupant death and a small falloff blast when a vehicle is destroyed
-- Projectile- and vehicle-destructible soft guardrails and fences
+- 100/100 deterministic same-page match lifecycles passed with zero clean-start transient
+  leaks and zero page/console errors
+- 10 full-zone seeds: 21/120 Bot safe-zone eliminations (17.5%, under the 20% budget)
+- Regular 12-Bot performance: 59.8 average FPS and 17.3ms reported p95 frame time
+- 15-Bot + 200-projectile stress: 50.3 median FPS, 62.6Hz simulation tick, 1.02x rule time
+- First public-build readiness remains under 3 seconds; a long 100-match session reached a
+  13.8-second later-match initialization outlier, retained as a known optimization risk
 
-## Quality Snapshot
-
-The D5.95 checkpoint passed the private development repository's full local gate:
-
-- TypeScript typecheck, ESLint, Prettier, package builds, and production client build
-- 123 unit tests: 9 research, 82 game-core, and 32 client
-- 40/40 Playwright browser tests with one supported heavyweight game client
-- One-click local cold-start smoke at HTTP 200 with the D5.95 label
-- Seeded spawn/loot sampling and a 91/100 visual QA verdict
-
-The production build retains a known non-blocking Phaser/Vite large-chunk warning. Extreme
-vehicle motion is not yet swept-collision based, and Bot looting, healing, doors, throwables,
-driving, and full pathfinding remain future work.
-
-## Architecture
-
-- TypeScript, Phaser, Vite, Vitest, and Playwright
-- Pure deterministic `game-core` rules separated from Phaser rendering and browser globals
-- Client-owned projected 2.5D presentation
-- Regression-tested map topology, accessibility, density, spawn, loot, and vehicle contracts
-- One-click local play/stop workflow in the private development tree
+The strict 20-minute heap gate and the owner's final three-match acceptance are still
+pending. The Vite/Phaser large-chunk warning remains visible rather than being hidden.
 
 ## Availability
 
-D5.95 is published as a static GitHub Pages playtest from the isolated `gh-pages` branch.
-The public `main` branch remains a fail-closed showcase containing only this README. The
-deployment contains the compiled browser bundle and required third-party notices, but no
-private TypeScript source, source maps, downloadable package, or online game server.
+The online build is published as a scanned static artifact from the isolated `gh-pages`
+branch. The public `main` branch remains a fail-closed showcase containing only this README.
+No private TypeScript source, source maps, internal documents, research corpus, downloadable
+package, or online game server are published.
+
+The earlier D5.95 milestone remains available as a historical
+[prerelease](https://github.com/Cyh29hao/last-pixel/releases/tag/d5.95-playtest).
 
 ## Next
 
-- Owner feel review and bounded comfort/balance fixes
-- Static world-render caching and long-running multi-match soak coverage
-- Single-player demo hardening and original production visual work
-- Server-readiness audit, then a local authoritative multiplayer vertical slice
-- Multiplayer parity and a six-human Internet test
+- Bounded map/minimap and vehicle-placement closeout from owner playtest feedback
+- Bot collision safety and equipment/drop variety
+- Weapon, ammunition, RPG, backpack, and attachment balance work
+- Final demo acceptance, then server-readiness audit and authoritative multiplayer work
 
-## Project Status
-
-Active development. Last Pixel is an original project, not an official remake, port, or
-licensed continuation of any existing game.
+Last Pixel is an original project, not an official remake, port, or licensed continuation
+of any existing game.
