@@ -8,71 +8,202 @@
       content="Project Last Pixel deterministic browser survival shooter graybox."
     />
     <link rel="icon" href="data:," />
-    <title>Project Last Pixel - Combat Graybox</title>
-    <script type="module" crossorigin src="/last-pixel/assets/index-k1O4q7oq.js"></script>
-    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-DwpC5ehx.css">
+    <title>Project Last Pixel - D6.2</title>
+    <script type="module" crossorigin src="/last-pixel/assets/index-7XxMl3qQ.js"></script>
+    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-DX07fAtU.css">
   </head>
   <body>
     <main id="app-shell">
       <div id="game-container" aria-label="Game canvas"></div>
       <section id="main-menu" class="shell-overlay menu-overlay" aria-label="Main menu">
-        <div class="menu-panel menu-panel--landing">
-          <header class="brand-lockup">
+        <div class="menu-panel menu-panel--landing product-lobby">
+          <header class="brand-lockup lobby-brand">
             <span class="brand-mark" aria-hidden="true"><span></span></span>
             <div>
-              <p class="eyebrow">Single-player survival field test</p>
+              <p class="eyebrow">Original survival field program</p>
               <h1>Project Last Pixel</h1>
-              <p class="build-label">D6.1 engineering closeout build</p>
+              <p class="build-label">D6.2 playable candidate</p>
             </div>
+            <p class="lobby-status"><span aria-hidden="true"></span> Local systems ready</p>
           </header>
-          <div class="menu-intro">
-            <p class="menu-lead">Loot fast. Read the town. Outlast every hostile.</p>
-            <p class="menu-summary">
-              An original browser survival-shooter prototype built for decisive movement,
-              scavenging, and compact firefights.
-            </p>
-            <p id="startup-error" class="startup-error hidden" role="alert"></p>
-          </div>
-          <div class="readiness-strip" aria-label="Build capabilities">
-            <span><strong>13</strong> Survivors</span>
-            <span><strong>Solo</strong> Local match</span>
-            <span><strong>Seeded</strong> Simulation</span>
-          </div>
-          <div class="menu-actions">
-            <button id="start-match" class="button-primary" type="button">Start Game</button>
-            <a
-              class="menu-link button-secondary"
-              href="https://github.com/cyh29hao/last-pixel"
-              target="_blank"
-              rel="noreferrer"
-              >Public GitHub</a
-            >
-          </div>
-          <p class="menu-keyline">
-            <kbd>WASD</kbd> Move <kbd>Mouse</kbd> Aim <kbd>F</kbd> Interact
-          </p>
-          <div class="menu-details-grid">
-            <details class="menu-details">
-              <summary>Field Manual</summary>
-              <ul>
-                <li>WASD move, mouse aim, left mouse fire.</li>
-                <li>F opens doors, picks loot, enters vehicles, or opens boxes.</li>
-                <li>1-6 select equipment; slot 5 throws grenades and slot 6 uses medicine.</li>
-                <li>Tab opens inventory. Right-click acts quickly; drag valid bag items.</li>
-                <li>M opens the tactical map with both current and next safe-zone rings.</li>
-                <li>O toggles cheat map intel for death boxes, vehicles, and survivors.</li>
-                <li>Vehicles use W/S throttle and A/D steering; F exits.</li>
-              </ul>
-            </details>
-            <details class="menu-details">
-              <summary>About This Build</summary>
-              <p>
-                A rough original 2.5D survival-shooter prototype focused on map legality, loot,
-                equipment, competing bots, vehicles, safe zones, and reliable match flow before
-                multiplayer.
+
+          <div class="lobby-layout">
+            <section class="lobby-brief" aria-labelledby="deployment-title">
+              <div class="menu-intro">
+                <p class="section-index">01 / Deployment</p>
+                <h2 id="deployment-title" class="menu-lead">
+                  Enter the town.<br />Own the final circle.
+                </h2>
+                <p class="menu-summary">
+                  Scavenge an original hand-built town, choose your engagements, and outlast every
+                  hostile in a complete offline match.
+                </p>
+                <p id="startup-error" class="startup-error hidden" role="alert"></p>
+              </div>
+
+              <div class="readiness-strip" aria-label="Selected match summary">
+                <span><strong>13</strong> Survivors</span>
+                <span><strong>Solo</strong> Local match</span>
+                <span><strong>Town</strong> Active map</span>
+              </div>
+
+              <button
+                id="start-match"
+                class="button-primary start-deployment"
+                type="button"
+                aria-label="Start Game"
+              >
+                <span>Start Deployment</span>
+                <small>Launch solo town match</small>
+              </button>
+
+              <p class="menu-keyline">
+                <kbd>WASD</kbd> Move <kbd>Mouse</kbd> Aim <kbd>F</kbd> Interact
               </p>
-            </details>
+            </section>
+
+            <section class="match-configuration" aria-labelledby="configuration-title">
+              <div class="configuration-heading">
+                <div>
+                  <p class="section-index">02 / Match setup</p>
+                  <h2 id="configuration-title">Deployment Options</h2>
+                </div>
+                <span>Offline</span>
+              </div>
+
+              <fieldset class="choice-group">
+                <legend>Play mode</legend>
+                <div class="choice-grid choice-grid--two">
+                  <button
+                    id="mode-single-player"
+                    class="choice-card is-selected"
+                    type="button"
+                    aria-pressed="true"
+                  >
+                    <strong>Single Player</strong><span>Local survival match</span>
+                  </button>
+                  <button
+                    id="mode-multiplayer"
+                    class="choice-card is-locked"
+                    type="button"
+                    disabled
+                    aria-disabled="true"
+                    title="Multiplayer is planned for a future build"
+                  >
+                    <strong>Multiplayer</strong><span>Future build · locked</span>
+                  </button>
+                </div>
+              </fieldset>
+
+              <fieldset class="choice-group">
+                <legend>Squad</legend>
+                <div class="choice-grid choice-grid--two">
+                  <button
+                    id="squad-solo"
+                    class="choice-card choice-card--compact is-selected"
+                    type="button"
+                    aria-pressed="true"
+                  >
+                    <strong>Solo</strong><span>1 player</span>
+                  </button>
+                  <button
+                    id="squad-four"
+                    class="choice-card choice-card--compact is-locked"
+                    type="button"
+                    disabled
+                    aria-disabled="true"
+                    title="Four-player squads are not available yet"
+                  >
+                    <strong>Squad</strong><span>4 players · locked</span>
+                  </button>
+                </div>
+              </fieldset>
+
+              <fieldset class="choice-group">
+                <legend>Map</legend>
+                <div class="choice-grid choice-grid--maps">
+                  <button
+                    id="map-town"
+                    class="choice-card map-card is-selected"
+                    type="button"
+                    aria-pressed="true"
+                  >
+                    <span class="map-card-art" aria-hidden="true"></span>
+                    <strong>Town</strong><span>18,000 × 16,800 field</span>
+                  </button>
+                  <button
+                    id="map-training-ground"
+                    class="choice-card map-card is-locked"
+                    type="button"
+                    disabled
+                    aria-disabled="true"
+                    title="The training ground is planned for a future build"
+                  >
+                    <span class="map-card-art map-card-art--training" aria-hidden="true"></span>
+                    <strong>Training Ground</strong><span>Systems lab · future build</span>
+                  </button>
+                </div>
+              </fieldset>
+
+              <div class="profile-editor" aria-labelledby="profile-title">
+                <div>
+                  <p class="choice-label" id="profile-title">Player identity</p>
+                  <p>Used on the match result screen.</p>
+                </div>
+                <label class="player-name-field" for="player-name-input">
+                  <span>Username</span>
+                  <input
+                    id="player-name-input"
+                    name="player-name"
+                    type="text"
+                    value="Player"
+                    maxlength="20"
+                    autocomplete="off"
+                    spellcheck="false"
+                  />
+                </label>
+                <button id="save-player-name" class="button-secondary" type="button">
+                  Apply Name
+                </button>
+                <p id="player-name-status" class="profile-status" role="status" aria-live="polite">
+                  Current callsign: Player
+                </p>
+              </div>
+            </section>
           </div>
+
+          <footer class="lobby-footer">
+            <div class="menu-details-grid">
+              <details class="menu-details">
+                <summary>Field Manual</summary>
+                <ul>
+                  <li>WASD move, mouse aim, left mouse fire.</li>
+                  <li>F interacts; Tab opens inventory and nearby loot.</li>
+                  <li>1-6 select equipment; M opens the tactical map.</li>
+                  <li>Vehicles use W/S throttle and A/D steering; F exits.</li>
+                </ul>
+              </details>
+              <details class="menu-details">
+                <summary>About D6.2</summary>
+                <p>
+                  An original offline survival-shooter candidate focused on readable tactical
+                  decisions, reliable match flow, and a town worth learning.
+                </p>
+              </details>
+            </div>
+            <nav class="creator-links" aria-label="Project links">
+              <a class="menu-link button-secondary" href="mailto:cyh29hao@sjtu.edu.cn"
+                >Email Author</a
+              >
+              <a
+                class="menu-link button-secondary"
+                href="https://github.com/cyh29hao/last-pixel"
+                target="_blank"
+                rel="noreferrer"
+                >Public GitHub</a
+              >
+            </nav>
+          </footer>
         </div>
       </section>
       <section
@@ -129,8 +260,8 @@
         </div>
         <div class="inventory-column inventory-column--equipment">
           <div class="column-heading">
-            <h3>Equipment</h3>
-            <span>Active loadout</span>
+            <h3>Loadout</h3>
+            <span>Protection / slots 1–6</span>
           </div>
           <div id="armor-status" class="armor-panel">Helmet: none<br />Vest: none</div>
           <div id="equipment-grid" class="equipment-grid"></div>
@@ -162,12 +293,20 @@
         aria-label="Match result"
       >
         <div class="menu-panel menu-panel--result">
-          <span class="result-mark" aria-hidden="true"><span></span></span>
-          <p class="eyebrow">Match complete</p>
-          <h2 id="settlement-title">Result</h2>
-          <p id="settlement-stats" class="settlement-stats"></p>
-          <p id="settlement-note" class="settlement-note"></p>
-          <div class="button-row">
+          <header class="settlement-header">
+            <span class="result-mark" aria-hidden="true"><span></span></span>
+            <div>
+              <p class="eyebrow">After action report</p>
+              <p id="settlement-player-name" class="settlement-player-name">Player</p>
+              <h2 id="settlement-title">Result</h2>
+            </div>
+          </header>
+          <div class="settlement-report">
+            <p class="settlement-report-label">Match record</p>
+            <p id="settlement-stats" class="settlement-stats"></p>
+            <p id="settlement-note" class="settlement-note"></p>
+          </div>
+          <div class="button-row settlement-actions">
             <button id="settlement-restart" class="button-primary" type="button">Play Again</button>
             <button id="settlement-menu" class="button-secondary" type="button">Main Menu</button>
           </div>
@@ -178,7 +317,7 @@
         <header class="debug-panel-header">
           <div>
             <strong>RUNTIME LAB</strong>
-            <span>D6.1 local diagnostics</span>
+            <span>D6.2 local diagnostics</span>
           </div>
           <span class="debug-live-badge">LIVE</span>
         </header>
