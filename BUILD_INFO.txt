@@ -1,4 +1,4 @@
-Last Pixel D6.1 - Engineering Closeout
+Last Pixel D6.2 - Product and Map Polish
 
 Public play URL: https://cyh29hao.github.io/last-pixel/
 Public project page: https://github.com/Cyh29hao/last-pixel
