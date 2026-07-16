@@ -8,195 +8,391 @@
       content="Project Last Pixel deterministic browser survival shooter graybox."
     />
     <link rel="icon" href="data:," />
-    <title>Project Last Pixel - D6.2</title>
-    <script type="module" crossorigin src="/last-pixel/assets/index-7XxMl3qQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-DX07fAtU.css">
+    <title>Project Last Pixel</title>
+    <script type="module" crossorigin src="/last-pixel/assets/index-CWxquJyt.js"></script>
+    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-B-mK_8rR.css">
   </head>
   <body>
     <main id="app-shell">
       <div id="game-container" aria-label="Game canvas"></div>
       <section id="main-menu" class="shell-overlay menu-overlay" aria-label="Main menu">
-        <div class="menu-panel menu-panel--landing product-lobby">
-          <header class="brand-lockup lobby-brand">
-            <span class="brand-mark" aria-hidden="true"><span></span></span>
-            <div>
-              <p class="eyebrow">Original survival field program</p>
-              <h1>Project Last Pixel</h1>
-              <p class="build-label">D6.2 playable candidate</p>
+        <div class="product-lobby">
+          <header class="lobby-topbar">
+            <div class="brand-lockup lobby-brand">
+              <span class="brand-mark" aria-hidden="true"><span></span></span>
+              <div>
+                <p class="eyebrow">Original offline survival shooter</p>
+                <h1>Project Last Pixel</h1>
+              </div>
+              <p class="build-label">D6.3 · Single-player closeout</p>
             </div>
+            <nav class="lobby-navigation" aria-label="Main menu sections">
+              <button class="lobby-nav-button is-active" type="button" data-menu-view="play">
+                Play
+              </button>
+              <button class="lobby-nav-button" type="button" data-menu-view="guide">
+                How to Play
+              </button>
+              <button class="lobby-nav-button" type="button" data-menu-view="codex">Codex</button>
+            </nav>
             <p class="lobby-status"><span aria-hidden="true"></span> Local systems ready</p>
           </header>
 
-          <div class="lobby-layout">
-            <section class="lobby-brief" aria-labelledby="deployment-title">
-              <div class="menu-intro">
-                <p class="section-index">01 / Deployment</p>
-                <h2 id="deployment-title" class="menu-lead">
-                  Enter the town.<br />Own the final circle.
-                </h2>
-                <p class="menu-summary">
-                  Scavenge an original hand-built town, choose your engagements, and outlast every
-                  hostile in a complete offline match.
+          <div class="lobby-viewport">
+            <section class="lobby-screen is-active" data-menu-screen="play" aria-label="Play">
+              <div class="deployment-hero">
+                <p class="section-index">Solo town survival</p>
+                <h2 id="deployment-title">Enter the town.<br />Own the final circle.</h2>
+                <p>
+                  Loot an original hand-built town, read the shrinking safe zone, use buildings and
+                  vehicles, and become the last survivor in a complete offline match.
                 </p>
+                <div class="readiness-strip" aria-label="Selected match summary">
+                  <span><strong>13</strong> Survivors</span>
+                  <span><strong>Solo</strong> Local match</span>
+                  <span><strong>Town</strong> Active map</span>
+                </div>
+                <button
+                  id="start-match"
+                  class="button-primary start-deployment"
+                  type="button"
+                  aria-label="Start Game"
+                >
+                  <span>Start Deployment</span>
+                  <small>Launch the complete solo match</small>
+                </button>
                 <p id="startup-error" class="startup-error hidden" role="alert"></p>
               </div>
 
-              <div class="readiness-strip" aria-label="Selected match summary">
-                <span><strong>13</strong> Survivors</span>
-                <span><strong>Solo</strong> Local match</span>
-                <span><strong>Town</strong> Active map</span>
-              </div>
-
-              <button
-                id="start-match"
-                class="button-primary start-deployment"
-                type="button"
-                aria-label="Start Game"
-              >
-                <span>Start Deployment</span>
-                <small>Launch solo town match</small>
-              </button>
-
-              <p class="menu-keyline">
-                <kbd>WASD</kbd> Move <kbd>Mouse</kbd> Aim <kbd>F</kbd> Interact
-              </p>
+              <section class="match-configuration" aria-labelledby="configuration-title">
+                <div class="configuration-heading">
+                  <div>
+                    <p class="section-index">Match setup</p>
+                    <h2 id="configuration-title">Deployment Options</h2>
+                  </div>
+                  <span>Offline</span>
+                </div>
+                <div class="configuration-grid">
+                  <fieldset class="choice-group">
+                    <legend>Mode</legend>
+                    <div class="choice-grid choice-grid--two">
+                      <button
+                        id="mode-single-player"
+                        class="choice-card is-selected"
+                        type="button"
+                        aria-pressed="true"
+                      >
+                        <strong>Single Player</strong><span>Available now</span>
+                      </button>
+                      <button
+                        id="mode-multiplayer"
+                        class="choice-card is-locked"
+                        type="button"
+                        disabled
+                        aria-disabled="true"
+                      >
+                        <strong>Multiplayer</strong><span>Future build</span>
+                      </button>
+                    </div>
+                  </fieldset>
+                  <fieldset class="choice-group">
+                    <legend>Squad</legend>
+                    <div class="choice-grid choice-grid--two">
+                      <button
+                        id="squad-solo"
+                        class="choice-card is-selected"
+                        type="button"
+                        aria-pressed="true"
+                      >
+                        <strong>Solo</strong><span>1 player</span>
+                      </button>
+                      <button
+                        id="squad-four"
+                        class="choice-card is-locked"
+                        type="button"
+                        disabled
+                        aria-disabled="true"
+                      >
+                        <strong>Squad</strong><span>4 players · locked</span>
+                      </button>
+                    </div>
+                  </fieldset>
+                  <fieldset class="choice-group configuration-map-group">
+                    <legend>Map</legend>
+                    <div class="choice-grid choice-grid--maps">
+                      <button
+                        id="map-town"
+                        class="choice-card map-card is-selected"
+                        type="button"
+                        aria-pressed="true"
+                      >
+                        <span class="map-card-art" aria-hidden="true"></span><strong>Town</strong
+                        ><span>18,000 × 16,800</span>
+                      </button>
+                      <button
+                        id="map-training-ground"
+                        class="choice-card map-card is-locked"
+                        type="button"
+                        disabled
+                        aria-disabled="true"
+                      >
+                        <span class="map-card-art map-card-art--training" aria-hidden="true"></span
+                        ><strong>Training Ground</strong><span>Future systems lab</span>
+                      </button>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="profile-editor" aria-labelledby="profile-title">
+                  <div>
+                    <p class="choice-label" id="profile-title">Player identity</p>
+                    <p>Used in the after-action report.</p>
+                  </div>
+                  <label class="player-name-field" for="player-name-input"
+                    ><span>Username</span
+                    ><input
+                      id="player-name-input"
+                      name="player-name"
+                      type="text"
+                      value="Player"
+                      maxlength="20"
+                      autocomplete="off"
+                      spellcheck="false"
+                  /></label>
+                  <button id="save-player-name" class="button-secondary" type="button">
+                    Apply Name
+                  </button>
+                  <p
+                    id="player-name-status"
+                    class="profile-status"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    Current callsign: Player
+                  </p>
+                </div>
+              </section>
             </section>
 
-            <section class="match-configuration" aria-labelledby="configuration-title">
-              <div class="configuration-heading">
-                <div>
-                  <p class="section-index">02 / Match setup</p>
-                  <h2 id="configuration-title">Deployment Options</h2>
-                </div>
-                <span>Offline</span>
+            <section
+              class="lobby-screen guide-screen"
+              data-menu-screen="guide"
+              aria-label="How to play"
+              hidden
+            >
+              <header class="screen-heading">
+                <p class="section-index">Field manual</p>
+                <h2>How to Survive the Town</h2>
+                <p>Everything needed for a first match, without leaving the game.</p>
+              </header>
+              <div class="guide-grid">
+                <article>
+                  <span>01</span>
+                  <h3>Loot and prepare</h3>
+                  <p>
+                    Search buildings and rich-loot districts. Use <kbd>Tab</kbd> to compare nearby
+                    ground loot, an opened container, your backpack, and equipped gear at the same
+                    time.
+                  </p>
+                </article>
+                <article>
+                  <span>02</span>
+                  <h3>Fight deliberately</h3>
+                  <p>
+                    Aim with the mouse and fire with the left button. Weapons use specific
+                    ammunition. Melee attacks damage survivors, doors, and vehicles.
+                  </p>
+                </article>
+                <article>
+                  <span>03</span>
+                  <h3>Read the circle</h3>
+                  <p>
+                    Open the tactical map with <kbd>M</kbd>. Move inside the white target circle
+                    before the blue zone closes; top-screen alerts announce each phase.
+                  </p>
+                </article>
+                <article>
+                  <span>04</span>
+                  <h3>Use the town</h3>
+                  <p>
+                    Buildings provide hard cover and interior lanes. <kbd>F</kbd> opens intact doors
+                    and enters vehicles; destroyed doors remain as broken debris.
+                  </p>
+                </article>
+                <article>
+                  <span>05</span>
+                  <h3>Drive and remember</h3>
+                  <p>
+                    Use <kbd>W/S</kbd> for throttle and <kbd>A/D</kbd> to steer. Your last intact
+                    vehicle is automatically marked on both maps.
+                  </p>
+                </article>
+                <article>
+                  <span>06</span>
+                  <h3>Win the match</h3>
+                  <p>
+                    There are 13 survivors. Eliminate threats, rotate early, and become the final
+                    living participant. The result screen records placement, eliminations, and
+                    survival time.
+                  </p>
+                </article>
               </div>
+              <div class="control-ribbon">
+                <kbd>WASD</kbd> Move <kbd>Mouse</kbd> Aim <kbd>LMB</kbd> Fire <kbd>F</kbd> Interact
+                <kbd>Tab</kbd> Inventory <kbd>M</kbd> Map <kbd>1–6</kbd> Slots
+              </div>
+            </section>
 
-              <fieldset class="choice-group">
-                <legend>Play mode</legend>
-                <div class="choice-grid choice-grid--two">
-                  <button
-                    id="mode-single-player"
-                    class="choice-card is-selected"
-                    type="button"
-                    aria-pressed="true"
-                  >
-                    <strong>Single Player</strong><span>Local survival match</span>
+            <section
+              class="lobby-screen codex-screen"
+              data-menu-screen="codex"
+              aria-label="Codex"
+              hidden
+            >
+              <header class="screen-heading">
+                <p class="section-index">Equipment archive</p>
+                <h2>Field Codex</h2>
+                <p>Select an entry to review its role, compatible ammunition, and match use.</p>
+              </header>
+              <div class="codex-layout">
+                <nav class="codex-index" aria-label="Codex entries">
+                  <button class="is-active" type="button" data-codex-entry="balanced-ar">
+                    Balanced AR
                   </button>
-                  <button
-                    id="mode-multiplayer"
-                    class="choice-card is-locked"
-                    type="button"
-                    disabled
-                    aria-disabled="true"
-                    title="Multiplayer is planned for a future build"
-                  >
-                    <strong>Multiplayer</strong><span>Future build · locked</span>
-                  </button>
+                  <button type="button" data-codex-entry="s686">S686</button>
+                  <button type="button" data-codex-entry="rpg">RPG</button>
+                  <button type="button" data-codex-entry="pan">Pan</button>
+                  <button type="button" data-codex-entry="armor">Armor</button>
+                  <button type="button" data-codex-entry="backpack">Backpacks</button>
+                  <button type="button" data-codex-entry="medicine">Medicine</button>
+                  <button type="button" data-codex-entry="grenade">Grenade</button>
+                  <button type="button" data-codex-entry="vehicle">Vehicles</button>
+                </nav>
+                <div class="codex-detail">
+                  <article class="is-active" data-codex-panel="balanced-ar">
+                    <p class="codex-category">Primary firearm · 5.56mm</p>
+                    <h3>Balanced AR</h3>
+                    <p>
+                      A dependable general-purpose rifle. It rewards controlled medium-range fire
+                      and uses common 5.56mm ammunition.
+                    </p>
+                    <dl>
+                      <div>
+                        <dt>Role</dt>
+                        <dd>Flexible primary</dd>
+                      </div>
+                      <div>
+                        <dt>Ammo</dt>
+                        <dd>5.56mm</dd>
+                      </div>
+                      <div>
+                        <dt>Best use</dt>
+                        <dd>Town rotations and mixed-range fights</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="s686" hidden>
+                    <p class="codex-category">Shotgun · 12 Gauge</p>
+                    <h3>S686</h3>
+                    <p>
+                      A close-range double-barrel shotgun with fast follow-up fire and severe range
+                      falloff.
+                    </p>
+                    <dl>
+                      <div>
+                        <dt>Role</dt>
+                        <dd>Room clearing</dd>
+                      </div>
+                      <div>
+                        <dt>Ammo</dt>
+                        <dd>12 Gauge</dd>
+                      </div>
+                      <div>
+                        <dt>Risk</dt>
+                        <dd>Very limited reach</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="rpg" hidden>
+                    <p class="codex-category">Launcher · Rocket</p>
+                    <h3>RPG</h3>
+                    <p>
+                      An air-drop launcher with direct impact and bounded line-of-sight splash
+                      damage. Excellent against vehicles and clustered targets.
+                    </p>
+                    <dl>
+                      <div>
+                        <dt>Role</dt>
+                        <dd>Heavy anti-vehicle</dd>
+                      </div>
+                      <div>
+                        <dt>Ammo</dt>
+                        <dd>Rocket</dd>
+                      </div>
+                      <div>
+                        <dt>Source</dt>
+                        <dd>Air drop</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="pan" hidden>
+                    <p class="codex-category">Melee</p>
+                    <h3>Pan</h3>
+                    <p>
+                      A longer-reaching melee weapon than empty hands. It damages survivors,
+                      instantly breaks doors, and can damage vehicles.
+                    </p>
+                  </article>
+                  <article data-codex-panel="armor" hidden>
+                    <p class="codex-category">Protection</p>
+                    <h3>Helmet and Vest</h3>
+                    <p>
+                      Level 1–3 equipment reduces incoming damage. Armor has no durability in the
+                      current single-player build.
+                    </p>
+                  </article>
+                  <article data-codex-panel="backpack" hidden>
+                    <p class="codex-category">Capacity</p>
+                    <h3>Backpacks</h3>
+                    <p>
+                      Higher levels expand item capacity. Equipped protection and backpack slots are
+                      separated from quick slots in the inventory.
+                    </p>
+                  </article>
+                  <article data-codex-panel="medicine" hidden>
+                    <p class="codex-category">Recovery · Slot 6</p>
+                    <h3>Medicine</h3>
+                    <p>
+                      First aid, medkits, and chocolate restore health after a hold action. Moving
+                      or entering a vehicle cancels use without consuming the item.
+                    </p>
+                  </article>
+                  <article data-codex-panel="grenade" hidden>
+                    <p class="codex-category">Throwable · Slot 5</p>
+                    <h3>Grenade</h3>
+                    <p>
+                      A short-throw timed explosive with line-of-sight blast rules. It can damage
+                      survivors, vehicles, barriers, and doors.
+                    </p>
+                  </article>
+                  <article data-codex-panel="vehicle" hidden>
+                    <p class="codex-category">Mobility</p>
+                    <h3>Cars, Pickups, and Vans</h3>
+                    <p>
+                      Four-seat vehicles trade agility, mass, and durability. High-speed impacts are
+                      dangerous; the last intact vehicle you used stays marked on both maps.
+                    </p>
+                  </article>
                 </div>
-              </fieldset>
-
-              <fieldset class="choice-group">
-                <legend>Squad</legend>
-                <div class="choice-grid choice-grid--two">
-                  <button
-                    id="squad-solo"
-                    class="choice-card choice-card--compact is-selected"
-                    type="button"
-                    aria-pressed="true"
-                  >
-                    <strong>Solo</strong><span>1 player</span>
-                  </button>
-                  <button
-                    id="squad-four"
-                    class="choice-card choice-card--compact is-locked"
-                    type="button"
-                    disabled
-                    aria-disabled="true"
-                    title="Four-player squads are not available yet"
-                  >
-                    <strong>Squad</strong><span>4 players · locked</span>
-                  </button>
-                </div>
-              </fieldset>
-
-              <fieldset class="choice-group">
-                <legend>Map</legend>
-                <div class="choice-grid choice-grid--maps">
-                  <button
-                    id="map-town"
-                    class="choice-card map-card is-selected"
-                    type="button"
-                    aria-pressed="true"
-                  >
-                    <span class="map-card-art" aria-hidden="true"></span>
-                    <strong>Town</strong><span>18,000 × 16,800 field</span>
-                  </button>
-                  <button
-                    id="map-training-ground"
-                    class="choice-card map-card is-locked"
-                    type="button"
-                    disabled
-                    aria-disabled="true"
-                    title="The training ground is planned for a future build"
-                  >
-                    <span class="map-card-art map-card-art--training" aria-hidden="true"></span>
-                    <strong>Training Ground</strong><span>Systems lab · future build</span>
-                  </button>
-                </div>
-              </fieldset>
-
-              <div class="profile-editor" aria-labelledby="profile-title">
-                <div>
-                  <p class="choice-label" id="profile-title">Player identity</p>
-                  <p>Used on the match result screen.</p>
-                </div>
-                <label class="player-name-field" for="player-name-input">
-                  <span>Username</span>
-                  <input
-                    id="player-name-input"
-                    name="player-name"
-                    type="text"
-                    value="Player"
-                    maxlength="20"
-                    autocomplete="off"
-                    spellcheck="false"
-                  />
-                </label>
-                <button id="save-player-name" class="button-secondary" type="button">
-                  Apply Name
-                </button>
-                <p id="player-name-status" class="profile-status" role="status" aria-live="polite">
-                  Current callsign: Player
-                </p>
               </div>
             </section>
           </div>
 
           <footer class="lobby-footer">
-            <div class="menu-details-grid">
-              <details class="menu-details">
-                <summary>Field Manual</summary>
-                <ul>
-                  <li>WASD move, mouse aim, left mouse fire.</li>
-                  <li>F interacts; Tab opens inventory and nearby loot.</li>
-                  <li>1-6 select equipment; M opens the tactical map.</li>
-                  <li>Vehicles use W/S throttle and A/D steering; F exits.</li>
-                </ul>
-              </details>
-              <details class="menu-details">
-                <summary>About D6.2</summary>
-                <p>
-                  An original offline survival-shooter candidate focused on readable tactical
-                  decisions, reliable match flow, and a town worth learning.
-                </p>
-              </details>
-            </div>
+            <p>Offline single-player · No account · No telemetry</p>
             <nav class="creator-links" aria-label="Project links">
-              <a class="menu-link button-secondary" href="mailto:cyh29hao@sjtu.edu.cn"
-                >Email Author</a
-              >
-              <a
-                class="menu-link button-secondary"
+              <a class="menu-link" href="mailto:cyh29hao@sjtu.edu.cn">Email Author</a
+              ><a
+                class="menu-link"
                 href="https://github.com/cyh29hao/last-pixel"
                 target="_blank"
                 rel="noreferrer"
@@ -317,7 +513,7 @@
         <header class="debug-panel-header">
           <div>
             <strong>RUNTIME LAB</strong>
-            <span>D6.2 local diagnostics</span>
+            <span>Local diagnostics</span>
           </div>
           <span class="debug-live-badge">LIVE</span>
         </header>
