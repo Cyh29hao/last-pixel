@@ -9,8 +9,8 @@
     />
     <link rel="icon" href="data:," />
     <title>Project Last Pixel</title>
-    <script type="module" crossorigin src="/last-pixel/assets/index-CWxquJyt.js"></script>
-    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-B-mK_8rR.css">
+    <script type="module" crossorigin src="/last-pixel/assets/index-BE37Fmxk.js"></script>
+    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-DiY4xXdj.css">
   </head>
   <body>
     <main id="app-shell">
@@ -33,7 +33,9 @@
               <button class="lobby-nav-button" type="button" data-menu-view="guide">
                 How to Play
               </button>
-              <button class="lobby-nav-button" type="button" data-menu-view="codex">Codex</button>
+              <button class="lobby-nav-button" type="button" data-menu-view="codex">
+                Equipment Guide
+              </button>
             </nav>
             <p class="lobby-status"><span aria-hidden="true"></span> Local systems ready</p>
           </header>
@@ -245,20 +247,29 @@
             <section
               class="lobby-screen codex-screen"
               data-menu-screen="codex"
-              aria-label="Codex"
+              aria-label="Equipment guide"
               hidden
             >
               <header class="screen-heading">
                 <p class="section-index">Equipment archive</p>
-                <h2>Field Codex</h2>
-                <p>Select an entry to review its role, compatible ammunition, and match use.</p>
+                <h2>Equipment Guide</h2>
+                <p>Select a weapon to review its ammunition, damage, magazine, range, and role.</p>
               </header>
               <div class="codex-layout">
-                <nav class="codex-index" aria-label="Codex entries">
+                <nav class="codex-index" aria-label="Equipment entries">
+                  <button type="button" data-codex-entry="basic-sidearm">Basic Sidearm</button>
+                  <button type="button" data-codex-entry="balanced-smg">Balanced SMG</button>
+                  <button type="button" data-codex-entry="high-rate-smg">High-Rate SMG</button>
                   <button class="is-active" type="button" data-codex-entry="balanced-ar">
                     Balanced AR
                   </button>
+                  <button type="button" data-codex-entry="high-damage-ar">High-Damage AR</button>
+                  <button type="button" data-codex-entry="airdrop-ar">Airdrop AR</button>
+                  <button type="button" data-codex-entry="dmr">DMR</button>
+                  <button type="button" data-codex-entry="m24">M24</button>
+                  <button type="button" data-codex-entry="m249">M249</button>
                   <button type="button" data-codex-entry="s686">S686</button>
+                  <button type="button" data-codex-entry="s1897">S1897</button>
                   <button type="button" data-codex-entry="rpg">RPG</button>
                   <button type="button" data-codex-entry="pan">Pan</button>
                   <button type="button" data-codex-entry="armor">Armor</button>
@@ -268,8 +279,82 @@
                   <button type="button" data-codex-entry="vehicle">Vehicles</button>
                 </nav>
                 <div class="codex-detail">
+                  <article data-codex-panel="basic-sidearm" hidden>
+                    <p class="codex-category">Sidearm · 9mm · Semi-auto</p>
+                    <h3>Basic Sidearm</h3>
+                    <p>A light early-game fallback found in poor loot areas.</p>
+                    <dl>
+                      <div>
+                        <dt>Damage</dt>
+                        <dd>22</dd>
+                      </div>
+                      <div>
+                        <dt>Magazine</dt>
+                        <dd>12</dd>
+                      </div>
+                      <div>
+                        <dt>Range</dt>
+                        <dd>460</dd>
+                      </div>
+                      <div>
+                        <dt>Fire interval</dt>
+                        <dd>260 ms</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="balanced-smg" hidden>
+                    <p class="codex-category">Primary · 9mm · Automatic</p>
+                    <h3>Balanced SMG</h3>
+                    <p>
+                      A forgiving close-range automatic weapon with controllable sustained fire.
+                    </p>
+                    <dl>
+                      <div>
+                        <dt>Damage</dt>
+                        <dd>12</dd>
+                      </div>
+                      <div>
+                        <dt>Magazine</dt>
+                        <dd>30</dd>
+                      </div>
+                      <div>
+                        <dt>Range</dt>
+                        <dd>590</dd>
+                      </div>
+                      <div>
+                        <dt>Fire interval</dt>
+                        <dd>82 ms</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="high-rate-smg" hidden>
+                    <p class="codex-category">Primary · 9mm · Automatic</p>
+                    <h3>High-Rate SMG</h3>
+                    <p>
+                      The fastest-firing ground weapon, balanced by low damage, wide spread, and a
+                      small magazine.
+                    </p>
+                    <dl>
+                      <div>
+                        <dt>Damage</dt>
+                        <dd>9</dd>
+                      </div>
+                      <div>
+                        <dt>Magazine</dt>
+                        <dd>20</dd>
+                      </div>
+                      <div>
+                        <dt>Range</dt>
+                        <dd>470</dd>
+                      </div>
+                      <div>
+                        <dt>Fire interval</dt>
+                        <dd>55 ms</dd>
+                      </div>
+                    </dl>
+                  </article>
                   <article class="is-active" data-codex-panel="balanced-ar">
-                    <p class="codex-category">Primary firearm · 5.56mm</p>
+                    <p class="codex-category">Primary · 5.56mm · Automatic</p>
                     <h3>Balanced AR</h3>
                     <p>
                       A dependable general-purpose rifle. It rewards controlled medium-range fire
@@ -277,16 +362,134 @@
                     </p>
                     <dl>
                       <div>
-                        <dt>Role</dt>
-                        <dd>Flexible primary</dd>
+                        <dt>Damage</dt>
+                        <dd>17</dd>
                       </div>
                       <div>
-                        <dt>Ammo</dt>
-                        <dd>5.56mm</dd>
+                        <dt>Magazine</dt>
+                        <dd>30</dd>
                       </div>
                       <div>
-                        <dt>Best use</dt>
-                        <dd>Town rotations and mixed-range fights</dd>
+                        <dt>Range / interval</dt>
+                        <dd>760 · 105 ms</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="high-damage-ar" hidden>
+                    <p class="codex-category">Primary · 7.62mm · Automatic</p>
+                    <h3>High-Damage AR</h3>
+                    <p>A slower, harder-hitting rifle for deliberate bursts.</p>
+                    <dl>
+                      <div>
+                        <dt>Damage</dt>
+                        <dd>23</dd>
+                      </div>
+                      <div>
+                        <dt>Magazine</dt>
+                        <dd>30</dd>
+                      </div>
+                      <div>
+                        <dt>Range</dt>
+                        <dd>720</dd>
+                      </div>
+                      <div>
+                        <dt>Fire interval</dt>
+                        <dd>135 ms</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="airdrop-ar" hidden>
+                    <p class="codex-category">Air drop · 7.62mm · Automatic</p>
+                    <h3>Airdrop All-Round AR</h3>
+                    <p>
+                      A rare rifle combining low spread, fast fire, extended capacity, and long
+                      reach.
+                    </p>
+                    <dl>
+                      <div>
+                        <dt>Damage</dt>
+                        <dd>18</dd>
+                      </div>
+                      <div>
+                        <dt>Magazine</dt>
+                        <dd>35</dd>
+                      </div>
+                      <div>
+                        <dt>Range</dt>
+                        <dd>840</dd>
+                      </div>
+                      <div>
+                        <dt>Fire interval</dt>
+                        <dd>95 ms</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="dmr" hidden>
+                    <p class="codex-category">Primary · 7.62mm · Semi-auto</p>
+                    <h3>DMR</h3>
+                    <p>A precise medium-to-long-range rifle for paced follow-up shots.</p>
+                    <dl>
+                      <div>
+                        <dt>Damage</dt>
+                        <dd>34</dd>
+                      </div>
+                      <div>
+                        <dt>Magazine</dt>
+                        <dd>10</dd>
+                      </div>
+                      <div>
+                        <dt>Range</dt>
+                        <dd>1,000</dd>
+                      </div>
+                      <div>
+                        <dt>Fire interval</dt>
+                        <dd>330 ms</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="m24" hidden>
+                    <p class="codex-category">Air drop · 7.62mm · Semi-auto</p>
+                    <h3>M24</h3>
+                    <p>The hardest-hitting precision firearm, with very slow follow-up shots.</p>
+                    <dl>
+                      <div>
+                        <dt>Damage</dt>
+                        <dd>72</dd>
+                      </div>
+                      <div>
+                        <dt>Magazine</dt>
+                        <dd>5</dd>
+                      </div>
+                      <div>
+                        <dt>Range</dt>
+                        <dd>1,120</dd>
+                      </div>
+                      <div>
+                        <dt>Fire interval</dt>
+                        <dd>900 ms</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="m249" hidden>
+                    <p class="codex-category">Air drop · 5.56mm · Automatic</p>
+                    <h3>M249</h3>
+                    <p>An 80-round suppression weapon with a long reload and wide spread.</p>
+                    <dl>
+                      <div>
+                        <dt>Damage</dt>
+                        <dd>14</dd>
+                      </div>
+                      <div>
+                        <dt>Magazine</dt>
+                        <dd>80</dd>
+                      </div>
+                      <div>
+                        <dt>Range</dt>
+                        <dd>780</dd>
+                      </div>
+                      <div>
+                        <dt>Fire interval</dt>
+                        <dd>70 ms</dd>
                       </div>
                     </dl>
                   </article>
@@ -299,16 +502,39 @@
                     </p>
                     <dl>
                       <div>
-                        <dt>Role</dt>
-                        <dd>Room clearing</dd>
+                        <dt>Damage</dt>
+                        <dd>11 × 8 pellets</dd>
                       </div>
                       <div>
-                        <dt>Ammo</dt>
-                        <dd>12 Gauge</dd>
+                        <dt>Magazine</dt>
+                        <dd>2</dd>
                       </div>
                       <div>
-                        <dt>Risk</dt>
-                        <dd>Very limited reach</dd>
+                        <dt>Range / interval</dt>
+                        <dd>322 · 210 ms</dd>
+                      </div>
+                    </dl>
+                  </article>
+                  <article data-codex-panel="s1897" hidden>
+                    <p class="codex-category">Primary · 12 Gauge · Pump action</p>
+                    <h3>S1897</h3>
+                    <p>A five-shell room-clearing shotgun with slow follow-up shots.</p>
+                    <dl>
+                      <div>
+                        <dt>Damage</dt>
+                        <dd>11 × 8 pellets</dd>
+                      </div>
+                      <div>
+                        <dt>Magazine</dt>
+                        <dd>5</dd>
+                      </div>
+                      <div>
+                        <dt>Range</dt>
+                        <dd>294</dd>
+                      </div>
+                      <div>
+                        <dt>Fire interval</dt>
+                        <dd>950 ms</dd>
                       </div>
                     </dl>
                   </article>
@@ -321,16 +547,16 @@
                     </p>
                     <dl>
                       <div>
-                        <dt>Role</dt>
-                        <dd>Heavy anti-vehicle</dd>
+                        <dt>Direct damage</dt>
+                        <dd>460</dd>
                       </div>
                       <div>
-                        <dt>Ammo</dt>
-                        <dd>Rocket</dd>
+                        <dt>Magazine</dt>
+                        <dd>1 rocket</dd>
                       </div>
                       <div>
-                        <dt>Source</dt>
-                        <dd>Air drop</dd>
+                        <dt>Range / blast</dt>
+                        <dd>720 · 170 radius</dd>
                       </div>
                     </dl>
                   </article>
