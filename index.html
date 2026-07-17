@@ -9,8 +9,8 @@
     />
     <link rel="icon" href="data:," />
     <title>Project Last Pixel</title>
-    <script type="module" crossorigin src="/last-pixel/assets/index-BE37Fmxk.js"></script>
-    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-DiY4xXdj.css">
+    <script type="module" crossorigin src="/last-pixel/assets/index-B-rrqnwJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-IN-Vtt6w.css">
   </head>
   <body>
     <main id="app-shell">
@@ -36,6 +36,7 @@
               <button class="lobby-nav-button" type="button" data-menu-view="codex">
                 Equipment Guide
               </button>
+              <button class="lobby-nav-button" type="button" data-menu-view="online">Online</button>
             </nav>
             <p class="lobby-status"><span aria-hidden="true"></span> Local systems ready</p>
           </header>
@@ -611,10 +612,29 @@
                 </div>
               </div>
             </section>
+            <!-- ONLINE_AUTH_START -->
+            <section
+              class="lobby-screen online-screen"
+              data-menu-screen="online"
+              aria-label="Online game entry"
+              hidden
+            >
+              <header class="screen-heading">
+                <p class="section-index">Separate authenticated origin</p>
+                <h2>Continue to Last Pixel Online</h2>
+                <p>Credential-free builds never accept account passwords.</p>
+              </header>
+              <a
+                class="button-primary online-link"
+                href="https://last-pixel-online.pages.dev/"
+                rel="noreferrer"
+              >Open Authenticated Online Build</a>
+            </section>
+            <!-- ONLINE_AUTH_END -->
           </div>
 
           <footer class="lobby-footer">
-            <p>Offline single-player · No account · No telemetry</p>
+            <p>Guest single-player · Online accounts on separate origin · No Guest telemetry</p>
             <nav class="creator-links" aria-label="Project links">
               <a class="menu-link" href="mailto:cyh29hao@sjtu.edu.cn">Email Author</a
               ><a
