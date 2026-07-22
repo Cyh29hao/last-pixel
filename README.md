@@ -26,7 +26,7 @@ contest delayed air drops, and survive until one participant remains.
 The current public loop includes:
 
 - 13-participant local matches: one player and 12 active Bot-Lite opponents
-- 176 visible buildings, 108 searchable interiors, connected commercial rows, alleys,
+- 180 visible buildings, 109 searchable interiors, connected commercial rows, alleys,
   bridges, rail boundary, hospital, hotel, restaurant, sports fields, and civic POIs
 - Item-backed weapons and matching ammunition, healing, armor, backpacks, grenades, death
   boxes, destructible doors/soft barriers, and indoor-weighted loot
@@ -42,14 +42,17 @@ The current public loop includes:
 
 ## Verification Snapshot
 
-The published D6.3 closeout passed:
+Fresh D6.3 closeout checks passed:
 
 - the complete 62-test browser regression suite;
-- 100/100 deterministic same-page match lifecycles;
-- active-Bot full-zone statistics and regular/stress performance gates;
-- a strict 20-minute Edge heap run with five restarts, zero runtime errors, and 1.6% measured
-  heap growth;
+- the full repository typecheck, lint, test, and build gate;
+- visual review and one-click browser smoke;
 - the source-map/private-marker scan and fail-closed JavaScript gzip budget.
+
+D6.3 inherits D6.1's passed hardening baseline: 100/100 deterministic same-page match
+lifecycles, active-Bot full-zone statistics, regular/stress performance, and a strict 20-minute
+Edge heap run with five restarts, zero runtime errors, and 1.6% measured heap growth. Those long
+gates were not rerun specifically for D6.3.
 
 The formal `v0.1-demo` tag still requires the owner's final three-match acceptance and explicit
 tag decision. The Vite/Phaser large-chunk warning remains a known non-blocker.
