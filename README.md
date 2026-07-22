@@ -5,7 +5,7 @@ readable matches, deterministic rules, and a dense small-town battlefield.
 
 > **Current public build:** D6.3 Single-player Closeout
 >
-> One local player and 12 Bot-Lite opponents. No multiplayer service is deployed.
+> One local player and 12 Bot-Lite opponents. No playable multiplayer product is deployed.
 
 ## Play Online
 
@@ -64,10 +64,13 @@ deterministic simulation and the first MP0b slices for loot, pickup arbitration,
 inventory, death boxes, doors, soft barriers, firearms, and matching ammunition have passed
 local automated and real two-client WebSocket checks.
 
-That engineering checkpoint is not a deployed multiplayer game and does not yet have full D6.3
-feature parity. Throwables, vehicles, zones, air drops, Bots, complete equipment interaction,
-matchmaking, Bot fill, prediction/reconciliation, hosted-provider testing, and production
-identity configuration remain open.
+The zero-rental-cost owner-PC transport path now has public HTTPS, cross-origin matchmaking, and
+WebSocket Upgrade smoke evidence. Its remote identity schema is live, and a temporary signed guest
+path is being enabled so testers do not need email registration. It is still only an
+account/history shell plus authority probe, not a playable multiplayer game. Full D6.3 parity,
+throwables, vehicles, zones, air drops, Bots, complete equipment interaction, matchmaking, Bot
+fill, prediction/reconciliation, real multi-human WAN testing, and production identity
+configuration remain open.
 
 ## Availability
 
