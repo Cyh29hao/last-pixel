@@ -5,7 +5,8 @@ readable matches, deterministic rules, and a dense small-town battlefield.
 
 > **Current public build:** D6.3 Single-player Closeout
 >
-> One local player and 12 Bot-Lite opponents. No playable multiplayer product is deployed.
+> The permanent Pages build has one local player and 12 Bot-Lite opponents. A separate
+> owner-hosted early multiplayer alpha is also playable while the test PC is online.
 
 ## Play Online
 
@@ -16,6 +17,20 @@ analytics, multiplayer server, cloud save, or account system is used.
 
 The project adds no cookies or telemetry. GitHub Pages may process connection data under
 GitHub's own policy; see the [playtest privacy note](https://cyh29hao.github.io/last-pixel/PRIVACY.txt).
+
+## Try the Multiplayer Alpha
+
+**[Open the home-hosted Online test](https://desktop-bsm6imq.taild233f6.ts.net:8443/?auth=play)**
+
+No account creation or Tailscale installation is required. Open **Online**, choose
+**Quick Guest Join**, then use `WASD`/arrow keys to move, the mouse to aim, left click or `Space`
+to fire, `R` to reload, and `E` to pick up. Desktop Chrome or Edge is recommended.
+
+This is a minimal authoritative combat test, not the complete D6.3 game: two or more guests can
+share a room, move, collect starter weapons, fire, and take server-judged damage. It is available
+only while the owner PC is powered, awake, online, connected to Tailscale, and running the home
+stack. Players need only a normal internet connection; if the link is unavailable, use the
+permanent single-player Pages build above.
 
 ## Current Game
 
@@ -64,17 +79,20 @@ deterministic simulation and the first MP0b slices for loot, pickup arbitration,
 inventory, death boxes, doors, soft barriers, firearms, and matching ammunition have passed
 local automated and real two-client WebSocket checks.
 
-The zero-rental-cost owner-PC transport path now has public HTTPS, cross-origin matchmaking, and
-WebSocket Upgrade smoke evidence. Its remote identity schema is live, and a temporary signed guest
-path is being enabled so testers do not need email registration. It is still only an
-account/history shell plus authority probe, not a playable multiplayer game. Full D6.3 parity,
+The zero-rental-cost owner-PC transport path now has public HTTPS, credentialed cross-origin
+matchmaking, WebSocket transport, and a temporary signed guest path. A two-browser public verifier
+observed one shared room, replicated movement, target health changing from 100 to 83, and no page
+errors; the real-WebSocket server suite independently locks those decisions to the authority.
+Full D6.3 parity,
 throwables, vehicles, zones, air drops, Bots, complete equipment interaction, matchmaking, Bot
-fill, prediction/reconciliation, real multi-human WAN testing, and production identity
-configuration remain open.
+fill, prediction/reconciliation, real-human latency/reconnect testing, abuse controls, mobile
+controls, and final UI remain open.
 
 ## Availability
 
-The online game is published as a scanned static artifact from the isolated `gh-pages` branch.
+The permanent single-player game is published as a scanned static artifact from the isolated
+`gh-pages` branch. The early multiplayer alpha is served separately from the owner PC and is not
+stored in this public repository.
 The public `main` branch remains a fail-closed showcase containing only this README. No private
 TypeScript source, source maps, internal documents, research corpus, downloadable package,
 credentials, or multiplayer server are published.
@@ -86,7 +104,7 @@ The earlier D5.95 milestone remains available as a historical
 
 - Finish MP0b migration until the authoritative simulation reaches complete D6.3 rule parity
 - Add public/private rooms for 2-6 humans with Bot fill to 13 participants
-- Validate hosted authority, production identity boundaries, and real multi-human WAN play
+- Validate real-human WAN latency/reconnects, abuse controls, and an always-on hosted authority
 - Complete owner acceptance and make a separate decision on the formal `v0.1-demo` tag
 
 The current public build remains an original graybox: production art/audio, final balance, full
