@@ -26,11 +26,13 @@ No account creation or Tailscale installation is required. Open **Online**, choo
 **Quick Guest Join**, then use `WASD`/arrow keys to move, the mouse to aim, left click or `Space`
 to fire, `R` to reload, and `E` to pick up. Desktop Chrome or Edge is recommended.
 
-This is a minimal authoritative combat test, not the complete D6.3 game: two or more guests can
-share a room, move, collect starter weapons, fire, and take server-judged damage. It is available
-only while the owner PC is powered, awake, online, connected to Tailscale, and running the home
-stack. Players need only a normal internet connection; if the link is unavailable, use the
-permanent single-player Pages build above.
+This is an authoritative D6.3-map combat alpha, not the complete D6.3 game. The Online client now
+uses the same Town map source and 2.5D visual language as the local build, including roads, water,
+bridges, 180 buildings, cutaways, props, trees, labels, dynamic doors/barriers, loot, players,
+projectiles, and a minimap. Two or more guests can share a room, move, collect starter weapons,
+fire, and take server-judged damage. It is available only while the owner PC is powered, awake,
+online, connected to Tailscale, and running the home stack. Players need only a normal internet
+connection; if the link is unavailable, use the permanent single-player Pages build above.
 
 ## Current Game
 
@@ -81,9 +83,9 @@ local automated and real two-client WebSocket checks.
 
 The zero-rental-cost owner-PC transport path now has public HTTPS, credentialed cross-origin
 matchmaking, WebSocket transport, and a temporary signed guest path. A two-browser public verifier
-observed one shared room, replicated movement, target health changing from 100 to 83, and no page
-errors; the real-WebSocket server suite independently locks those decisions to the authority.
-Full D6.3 parity,
+required the exact D6.3 map marker and 180-building shared source, observed one shared room,
+replicated movement, target health changing from 100 to 83, and no page errors; the real-WebSocket
+server suite independently locks those decisions to the authority. Full D6.3 rule parity,
 throwables, vehicles, zones, air drops, Bots, complete equipment interaction, matchmaking, Bot
 fill, prediction/reconciliation, real-human latency/reconnect testing, abuse controls, mobile
 controls, and final UI remain open.
