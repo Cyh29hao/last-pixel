@@ -5,8 +5,9 @@ readable matches, deterministic rules, and a dense small-town battlefield.
 
 > **Current public build:** D6.3 Single-player Closeout
 >
-> The permanent Pages build has one local player and 12 Bot-Lite opponents. A separate
-> owner-hosted early multiplayer alpha is also playable while the test PC is online.
+> The permanent Pages build has one local player and 12 Bot-Lite opponents. The first same-origin
+> cloud multiplayer route is prepared privately, and the owner-preview home route remains only a
+> fallback while the test PC is online.
 
 ## Play Online
 
@@ -18,7 +19,7 @@ analytics, multiplayer server, cloud save, or account system is used.
 The project adds no cookies or telemetry. GitHub Pages may process connection data under
 GitHub's own policy; see the [playtest privacy note](https://cyh29hao.github.io/last-pixel/PRIVACY.txt).
 
-## Try the Multiplayer Alpha
+## Owner-Preview Online Fallback
 
 **[Open the home-hosted Online test](https://desktop-bsm6imq.taild233f6.ts.net:8443/?auth=play)**
 
@@ -26,13 +27,14 @@ No account creation or Tailscale installation is required. Open **Online**, choo
 **Quick Guest Join**, then use `WASD`/arrow keys to move, the mouse to aim, left click or `Space`
 to fire, `R` to reload, and `E` to pick up. Desktop Chrome or Edge is recommended.
 
-This is an authoritative D6.3-map combat alpha, not the complete D6.3 game. The Online client now
-uses the same Town map source and 2.5D visual language as the local build, including roads, water,
-bridges, 180 buildings, cutaways, props, trees, labels, dynamic doors/barriers, loot, players,
-projectiles, and a minimap. Two or more guests can share a room, move, collect starter weapons,
-fire, and take server-judged damage. It is available only while the owner PC is powered, awake,
-online, connected to Tailscale, and running the home stack. Players need only a normal internet
-connection; if the link is unavailable, use the permanent single-player Pages build above.
+This route is a preview fallback, not the formal release path. The private development line has
+already verified the full landing -> Quick Guest -> room -> Ready -> battle -> results product
+flow as one same-origin Node service, and that fixed-cloud route is prepared for Render free.
+The home Tailscale Funnel link above still works as a temporary owner preview, but repeated public
+tests exposed a one-way WebSocket failure mode where snapshots keep arriving while player input
+stops reaching the server. Use it only as an occasional preview while the owner PC is powered,
+awake, online, connected to Tailscale, and running the home stack. If the link is unavailable,
+use the permanent single-player Pages build above.
 
 ## Current Game
 
@@ -81,14 +83,13 @@ deterministic simulation and the first MP0b slices for loot, pickup arbitration,
 inventory, death boxes, doors, soft barriers, firearms, and matching ammunition have passed
 local automated and real two-client WebSocket checks.
 
-The zero-rental-cost owner-PC transport path now has public HTTPS, credentialed cross-origin
-matchmaking, WebSocket transport, and a temporary signed guest path. A two-browser public verifier
-required the exact D6.3 map marker and 180-building shared source, observed one shared room,
-replicated movement, target health changing from 100 to 83, and no page errors; the real-WebSocket
-server suite independently locks those decisions to the authority. Full D6.3 rule parity,
-throwables, vehicles, zones, air drops, Bots, complete equipment interaction, matchmaking, Bot
-fill, prediction/reconciliation, real-human latency/reconnect testing, abuse controls, mobile
-controls, and final UI remain open.
+The private development line now proves the same-origin Online bundle locally: two anonymous
+guests can join one room, Ready, collect starter weapons, move under server authority, deal
+damage, and reach settlement with no browser page errors. The default `Start New Match` path now
+creates a fresh waiting room so a stale unready stranger cannot block solo or rematch play.
+The first fixed-cloud release still depends on the owner creating the Render Blueprint and entering
+the prompted Supabase values. Full D6.3 rule parity, live WAN proof on the cloud URL, abuse
+controls, mobile controls, and final UI remain open.
 
 ## Availability
 
