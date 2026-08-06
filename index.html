@@ -5,26 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Project Last Pixel deterministic browser survival shooter graybox."
+      content="Play Last Pixel, an original browser survival shooter set in a dense hand-built water town."
     />
+    <meta name="theme-color" content="#060a0d" />
+    <meta property="og:title" content="Project Last Pixel" />
+    <meta
+      property="og:description"
+      content="Enter the town, survive the shrinking safe zone, and outlast twelve opponents in one browser tab."
+    />
+    <meta property="og:type" content="website" />
     <link rel="icon" href="data:," />
     <title>Project Last Pixel</title>
-    <script type="module" crossorigin src="/last-pixel/assets/index-B-rrqnwJ.js"></script>
-    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-IN-Vtt6w.css">
+    <script type="module" crossorigin src="/last-pixel/assets/index-C_vVpjx0.js"></script>
+    <link rel="stylesheet" crossorigin href="/last-pixel/assets/index-V58jokq_.css">
   </head>
   <body>
     <main id="app-shell">
+      <section id="release-intro" class="release-intro" aria-label="Game introduction">
+        <div class="release-intro-shell">
+          <header class="release-intro-header">
+            <div class="brand-lockup release-brand">
+              <span class="brand-mark" aria-hidden="true"><span></span></span>
+              <div>
+                <p class="eyebrow">Original browser survival shooter</p>
+                <p class="release-wordmark">Project Last Pixel</p>
+              </div>
+            </div>
+            <p class="release-build-state"><span aria-hidden="true"></span>Solo build ready</p>
+          </header>
+
+          <div class="release-hero-grid">
+            <section class="release-hero-copy" aria-labelledby="release-title">
+              <p class="section-index">A complete match in one browser tab</p>
+              <h1 id="release-title">Enter the town.<br />Survive the final circle.</h1>
+              <p class="release-lead">
+                Search an original hand-built water town, fight through interiors and streets, drive
+                for the next safe zone, and outlast twelve active opponents.
+              </p>
+              <button id="release-open-game" class="button-primary release-open-game" type="button">
+                <span>Open Game</span>
+                <small>Continue to the main menu</small>
+              </button>
+              <p class="release-input-note">
+                No account for solo play · Desktop keyboard and mouse
+              </p>
+
+              <dl class="release-status-grid" aria-label="Release availability">
+                <div>
+                  <dt>Available now</dt>
+                  <dd>Full offline solo match</dd>
+                </div>
+                <div>
+                  <dt>In local verification</dt>
+                  <dd>Shared-scene multiplayer candidate</dd>
+                </div>
+              </dl>
+            </section>
+
+            <section class="release-gallery" aria-label="Game screenshots">
+              <figure class="release-shot release-shot--gameplay">
+                <img
+                  data-release-shot="gameplay"
+                  alt="Last Pixel town combat gameplay"
+                  decoding="async"
+                />
+                <figcaption>
+                  <strong>Fight the whole town</strong><span>13-survivor solo match</span>
+                </figcaption>
+              </figure>
+              <figure class="release-shot release-shot--menu">
+                <img
+                  data-release-shot="menu"
+                  alt="Last Pixel main menu"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>
+                  <strong>Start without setup</strong><span>No account required</span>
+                </figcaption>
+              </figure>
+              <figure class="release-shot release-shot--results">
+                <img
+                  data-release-shot="results"
+                  alt="Last Pixel match result screen"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>
+                  <strong>Finish the run</strong><span>Placement and combat report</span>
+                </figcaption>
+              </figure>
+            </section>
+          </div>
+
+          <footer class="release-intro-footer">
+            <p>
+              Public Pages is the stable solo build. Internet multiplayer is not advertised as
+              released yet.
+            </p>
+            <p>D6.3 · Original graybox · No gameplay telemetry</p>
+          </footer>
+        </div>
+      </section>
       <div id="game-container" aria-label="Game canvas"></div>
-      <section id="main-menu" class="shell-overlay menu-overlay" aria-label="Main menu">
+      <section id="main-menu" class="shell-overlay menu-overlay" aria-label="Main menu" hidden>
         <div class="product-lobby">
           <header class="lobby-topbar">
             <div class="brand-lockup lobby-brand">
               <span class="brand-mark" aria-hidden="true"><span></span></span>
               <div>
-                <p class="eyebrow">Original offline survival shooter</p>
+                <p class="eyebrow">Original browser survival shooter</p>
                 <h1>Project Last Pixel</h1>
               </div>
-              <p class="build-label">D6.3 · Single-player closeout</p>
+              <p class="build-label">D6.3 · Stable solo build</p>
             </div>
             <nav class="lobby-navigation" aria-label="Main menu sections">
               <button class="lobby-nav-button is-active" type="button" data-menu-view="play">
@@ -61,8 +154,8 @@
                   type="button"
                   aria-label="Start Game"
                 >
-                  <span>Start Deployment</span>
-                  <small>Launch the complete solo match</small>
+                  <span>Start Match</span>
+                  <small>Play a complete solo run</small>
                 </button>
                 <p id="startup-error" class="startup-error hidden" role="alert"></p>
               </div>
@@ -620,21 +713,17 @@
               hidden
             >
               <header class="screen-heading">
-                <p class="section-index">Separate authenticated origin</p>
-                <h2>Continue to Last Pixel Online</h2>
-                <p>Credential-free builds never accept account passwords.</p>
+                <p class="section-index">Multiplayer development</p>
+                <h2>Online is being verified locally</h2>
+                <p>The stable public Pages build is solo only. Multiplayer currently requires the local owner-test authority and is not presented as a released internet service.</p>
               </header>
-              <a
-                class="button-primary online-link"
-                href="https://last-pixel-online.pages.dev/"
-                rel="noreferrer"
-              >Open Authenticated Online Build</a>
+              <p id="online-release-status" class="online-status" data-tone="info">No public matchmaking endpoint is advertised from this build.</p>
             </section>
             <!-- ONLINE_AUTH_END -->
           </div>
 
           <footer class="lobby-footer">
-            <p>Guest single-player · Online accounts on separate origin · No Guest telemetry</p>
+            <p>Offline solo · No account required · No gameplay telemetry</p>
             <nav class="creator-links" aria-label="Project links">
               <a class="menu-link" href="mailto:cyh29hao@sjtu.edu.cn">Email Author</a
               ><a
