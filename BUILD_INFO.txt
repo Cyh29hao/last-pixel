@@ -1,4 +1,4 @@
-Last Pixel D6.3 - Single-Player Closeout
+Last Pixel D6.3 - Stable Solo Release
 
 Public play URL: https://cyh29hao.github.io/last-pixel/
 Public project page: https://github.com/Cyh29hao/last-pixel
