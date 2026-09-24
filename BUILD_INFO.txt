@@ -1,11 +1,12 @@
-Last Pixel D6.3 - Stable Solo Release
+Last Pixel M2.5 / M3.4 - Current Single-Player Midterm Build
 
 Public play URL: https://cyh29hao.github.io/last-pixel/
 Public project page: https://github.com/Cyh29hao/last-pixel
 
-This is an original single-player graybox playtest. It is not an official remake, port, or
-licensed continuation of any existing game. Multiplayer, production art/audio/UI,
-attachments, and final balance are not included in this candidate.
+This is an original single-player graybox playtest. It includes the current fair Bot search,
+real world pickup, denser seeded loot, loaded/reserve ammunition HUD, and desktop inventory
+readability work. It is not an official remake, port, or licensed continuation of any existing
+game. Online features, production art/audio, attachments, and final balance are not included.
 
 Original project code and content remain all rights reserved unless otherwise stated.
 Third-party components remain under their respective licenses; see THIRD_PARTY_NOTICES.txt.
